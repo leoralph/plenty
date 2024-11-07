@@ -37,11 +37,11 @@
 
                         <div class="row">
                             <div class="col-6 mt-4 d-grid">
-                                <Button class="btn btn-outline-secondary" type="button" id="login" >{{__("Login")}}</Button>
+                                <Button class="btn btn-primary" type="button" id="login" >{{__("Login")}}</Button>
                                 
                             </div>
                             <div class="col-6 mt-4 d-grid">
-                                <Button class="btn btn-outline-primary" type="button" id="create-account">{{__("Create Account")}}</Button>
+                                <Button class="btn btn-outline-secondary" type="button" id="register">{{__("Register")}}</Button>
                             </div>
                         </div>
                     </form>
