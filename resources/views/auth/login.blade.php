@@ -1,9 +1,9 @@
 <x-layouts.guest>
     <div class="container">
 
-        <div class="space"></div>
+        
 
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center py-5 mt-5">
 
             <div class="col-10 col-md-3">
 
@@ -41,7 +41,7 @@
                                 
                             </div>
                             <div class="col-6 mt-4 d-grid">
-                                <Button class="btn btn-outline-primary" type="button" id="sign-in">{{__("Sign-in")}}</Button>
+                                <Button class="btn btn-outline-primary" type="button" id="create-account">{{__("Create Account")}}</Button>
                             </div>
                         </div>
                     </form>
