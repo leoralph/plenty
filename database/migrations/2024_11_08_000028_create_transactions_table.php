@@ -15,7 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('account_id')->constrained();
             $table->foreignUuid('category_id')->nullable()->constrained();
-            $table->bigInteger('value')->index();
+            $table->date('date')->index();
+            $table->bigInteger('amount')->index();
             $table->timestamps();
         });
     }
