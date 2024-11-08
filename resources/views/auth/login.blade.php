@@ -1,7 +1,7 @@
 <x-layouts.guest>
     <div class="container">
 
-        
+
 
         <div class="row justify-content-center py-5 mt-5">
 
@@ -17,34 +17,47 @@
 
                 <div class="row ">
 
-                    
-                    <form >
+
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
+
                         <div data-mdb-input-init class="form-outline mb-4">
-                            <label class="form-label" for="e-mail">{{__('E-mail')}} :</label>
-                            <input type="email" id="e-mail" class="form-control"/>
-            
+                            <label class="form-label" for="email">{{__('E-mail')}} :</label>
+                            <input type="text" id="email" name="email" class="form-control" />
+                            @error('email') {{$message}} @enderror
                         </div>
 
                         <div data-mdb-input-init class="form-outline mb-4">
                             <label class="form-label" for="password">{{__('Password')}} :</label>
-                            <input type="password" id="password" class="form-control" />
+                            <input type="password" id="password" name="password" class="form-control" />
+                            @error('password') {{$message}} @enderror
                         </div>
 
                         <div class="col-12">
-                            <input type="checkbox" id="remember" checked/>
+                            <input type="checkbox" id="remember" name="remember" checked value="1" />
                             <label for="remember">{{__("Remember-me")}}</label>
+                            @error('remember') {{$message}} @enderror
                         </div>
+
+                        @error('login')
+                            <div class="col-12">
+                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            </div>
+                        @enderror
 
                         <div class="row">
                             <div class="col-6 mt-4 d-grid">
-                                <Button class="btn btn-primary" type="button" id="login" >{{__("Login")}}</Button>
-                                
+                                <button type="submit" class="btn btn-primary" id="login">{{__("Login")}}</button>
                             </div>
+
                             <div class="col-6 mt-4 d-grid">
-                                <Button class="btn btn-outline-secondary" type="button" id="register">{{__("Register")}}</Button>
+                                <button class="btn btn-outline-secondary" type="button"
+                                    id="register">{{__("Register")}}</button>
                             </div>
                         </div>
+
                     </form>
+
                 </div>
 
             </div>
