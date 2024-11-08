@@ -24,19 +24,16 @@
                         <div data-mdb-input-init class="form-outline mb-4">
                             <label class="form-label" for="email">{{__('E-mail')}} :</label>
                             <input type="text" id="email" name="email" class="form-control" />
-                            <!-- @error('email') {{$message}} @enderror -->
                         </div>
 
                         <div data-mdb-input-init class="form-outline mb-4">
                             <label class="form-label" for="password">{{__('Password')}} :</label>
                             <input type="password" id="password" name="password" class="form-control" />
-                            <!-- @error('password') {{$message}} @enderror -->
                         </div>
 
                         <div class="col-12">
                             <input type="checkbox" id="remember" name="remember" checked value="1" />
                             <label for="remember">{{__("Remember-me")}}</label>
-                           <!--  @error('remember') {{$message}} @enderror -->
                         </div>
 
                         @error('email')
