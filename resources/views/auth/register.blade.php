@@ -1,8 +1,6 @@
 <x-layouts.guest>
     <div class="container">
 
-
-
         <div class="row justify-content-center py-5 mt-5">
 
             <div class="col-10 col-md-3">
@@ -18,7 +16,7 @@
                 <div class="row">
 
 
-                    <form action="{{ route('login') }}" method="post">
+                    <form action="{{ route('register') }}" method="post">
                         @csrf
 
                         <div class="form-outline mb-2">
@@ -46,23 +44,21 @@
 
                         </div>
 
-                        <div class="col-12 mb-2">
+                        <div class="form-outline mb-2">
 
-                            <x-form.checkbox :invalid="$errors->has('remember')" id="remember" name="remember"
-                                value="1" />
+                            <x-form.input-label for="password-confirmation" :value="__('Password Confirmation')"></x-form.input-label>
 
-                            <x-form.input-label for="remember" :value="__('Remember me')" />
+                            <x-form.text-field :invalid="$errors->has('password-confirmation')"
+                                id="password-confirmation" name="password_confirmation" type="password-confirmation" />
 
-                            @error('remember')
+                            @error('password-confirmation')
                                 <x-form.input-error :message="$message" />
                             @enderror
-
-                            <a href="{{route('forgot-password')}}" class="float-end">{{__('Forgot password?')}}</a>
 
                         </div>
 
                         <div class="col-12 d-grid">
-                            <button type="submit" class="btn btn-primary" id="login">{{__("Login")}}</button>
+                            <button type="submit" class="btn btn-primary" id="register">{{__("Register")}}</button>
                         </div>
 
                     </form>
@@ -76,8 +72,8 @@
                 <div class="row">
 
                     <div class="col-12">
-                        <p class="text-center">{{__("Don't have an account?")}} <a
-                                href="{{route('register')}}">{{__('Register')}}</a></p>
+                        <p class="text-center">{{__("Already have an account?")}} <a
+                                href="{{ route('login') }}">{{__('Login')}}</a></p>
                     </div>
 
                 </div>
