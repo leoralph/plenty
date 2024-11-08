@@ -36,30 +36,6 @@
                             <label for="remember">{{__("Remember-me")}}</label>
                         </div>
 
-                        @error('email')
-                            <div class="col-12">
-                                <div class="alert alert-danger mt-2">{{ $message }}</div>
-                            </div>
-                        @enderror
-
-                        @error('password')
-                            <div class="col-12">
-                                <div class="alert alert-danger mt-2">{{ $message }}</div>
-                            </div>
-                        @enderror
-
-                        @error('remember')
-                            <div class="col-12">
-                                <div class="alert alert-danger mt-2">{{ $message }}</div>
-                            </div>
-                        @enderror
-
-                        @error('login')
-                            <div class="col-12">
-                                <div class="alert alert-danger mt-2">{{ $message }}</div>
-                            </div>
-                        @enderror
-
                         <div class="row">
                             <div class="col-6 mt-4 d-grid">
                                 <button type="submit" class="btn btn-primary" id="login">{{__("Login")}}</button>
