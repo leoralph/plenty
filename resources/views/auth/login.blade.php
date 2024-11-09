@@ -1,90 +1,50 @@
 <x-layouts.guest>
-    <div class="container">
+    <form action="{{ route('login') }}" method="post">
+        @csrf
 
+        <h2 class="text-center text-3xl mb-3 font-medium text-slate-700">
+            Plenty
+        </h2>
 
-
-        <div class="row justify-content-center py-5 mt-5">
-
-            <div class="col-10 col-md-3">
-
-                <div class="row ">
-
-                    <div class="col-12  text-center">
-                        <h2>Plenty</h2>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-
-                    <form action="{{ route('login') }}" method="post">
-                        @csrf
-
-                        <div class="form-outline mb-2">
-
-                            <x-form.input-label for="email" :value="__('Email')"></x-form.input-label>
-
-                            <x-form.text-field :invalid="$errors->has('email')" id="email" name="email" />
-
-                            @error('email')
-                                <x-form.input-error :message="$message" />
-                            @enderror
-                        </div>
-
-
-                        <div class="form-outline mb-2">
-
-                            <x-form.input-label for="password" :value="__('Password')"></x-form.input-label>
-
-                            <x-form.text-field :invalid="$errors->has('password')" id="password" name="password"
-                                type="password" />
-
-                            @error('password')
-                                <x-form.input-error :message="$message" />
-                            @enderror
-
-                        </div>
-
-                        <div class="col-12 mb-2">
-
-                            <x-form.checkbox :invalid="$errors->has('remember')" id="remember" name="remember"
-                                value="1" />
-
-                            <x-form.input-label for="remember" :value="__('Remember me')" />
-
-                            @error('remember')
-                                <x-form.input-error :message="$message" />
-                            @enderror
-
-                            <a href="{{route('forgot-password')}}" class="float-end">{{__('Forgot password?')}}</a>
-
-                        </div>
-
-                        <div class="col-12 d-grid">
-                            <button type="submit" class="btn btn-primary" id="login">{{__("Login")}}</button>
-                        </div>
-
-                    </form>
-
-
-
-                </div>
-
-                <hr class="my-4">
-
-                <div class="row">
-
-                    <div class="col-12">
-                        <p class="text-center">{{__("Don't have an account?")}} <a
-                                href="{{route('register')}}">{{__('Register')}}</a></p>
-                    </div>
-
-                </div>
-
-            </div>
+        <div>
+            <x-form.input-label for="email" :value="__('Email')" />
+            <x-form.text-field type="text" name="email" id="email" autofocus class="block w-full" />
+            <x-form.input-errors :messages="$errors->get('email')" />
 
         </div>
 
+        <div class="mt-4">
+            <x-form.input-label for="password" :value="__('Password')" />
+            <x-form.text-field type="password" name="password" id="password" class="block w-full" />
+            <x-form.input-errors :messages="$errors->get('password')" />
+        </div>
+
+        <div class="mt-2">
+            <label for="remember" class="flex items-center">
+                <input type="checkbox" name="remember" id="remember" class="rounded border-slate-400 text-blue-400">
+                <span class="ml-2 text-sm text-slate-500">
+                    {{ __('Remember me') }}
+                </span>
+            </label>
+        </div>
+
+        <div class="mt-4 flex items-center justify-end space-x-3.5">
+            <x-link href="{{ route('forgot-password') }}" class="text-sm">
+                {{ __('Forgot your password?') }}
+            </x-link>
+            <x-primary-button type="submit" class="inline">
+                {{ __('Login') }}
+            </x-primary-button>
+        </div>
+    </form>
+
+    <x-divider />
+
+    <div class="text-center">
+        <span class="text-slate-500">{{ __("Don't have an account?") }}</span>
+        <x-link href="{{ route('register') }}">
+            {{ __('Register') }}
+        </x-link>
     </div>
+
 </x-layouts.guest>
