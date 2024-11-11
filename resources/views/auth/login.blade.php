@@ -18,7 +18,7 @@
                 <div class="row">
 
 
-                    <form action="{{ route('login') }}" method="post">
+                    <form action="{{ route(name: 'login') }}" method="post">
                         @csrf
 
                         <div class="form-outline mb-2">

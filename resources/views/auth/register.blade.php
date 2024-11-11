@@ -21,6 +21,17 @@
 
                         <div class="form-outline mb-2">
 
+                            <x-form.input-label for="name" :value="__('Name')"></x-form.input-label>
+
+                            <x-form.text-field :invalid="$errors->has('name')" id="name" name="name" />
+
+                            @error('name')
+                                <x-form.input-error :message="$message" />
+                            @enderror
+                        </div>
+
+                        <div class="form-outline mb-2">
+
                             <x-form.input-label for="email" :value="__('Email')"></x-form.input-label>
 
                             <x-form.text-field :invalid="$errors->has('email')" id="email" name="email" />
@@ -49,9 +60,9 @@
                             <x-form.input-label for="password-confirmation" :value="__('Password Confirmation')"></x-form.input-label>
 
                             <x-form.text-field :invalid="$errors->has('password-confirmation')"
-                                id="password-confirmation" name="password_confirmation" type="password-confirmation" />
+                                id="password-confirmation" name="password_confirmation" type="password" />
 
-                            @error('password-confirmation')
+                            @error('password_confirmation')
                                 <x-form.input-error :message="$message" />
                             @enderror
 
