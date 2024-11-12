@@ -1,6 +1,4 @@
-@props([
-    'message'
-])
+@props(['message'])
 
 <div class="invalid-feedback">
     {{ $message ?? $slot }}
