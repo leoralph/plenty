@@ -47,4 +47,8 @@
         </x-link>
     </div>
 
+    @if(session()->has('status'))
+        <x-form.redirect-message class="mt-4 text-green-300" :message="session('status')" />
+    @endif
+
 </x-layouts.guest>

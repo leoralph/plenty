@@ -20,5 +20,10 @@
                 {{ __('Send Reset Link') }}
             </x-primary-button>
         </div>
+
+        @if (session()->has('status'))
+            <x-form.redirect-message class="mt-4 text-green-400" :message="session('status')" />
+        @endif
+
     </form>
 </x-layouts.guest>

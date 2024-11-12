@@ -14,13 +14,11 @@ class PasswordController extends Controller
     public function forgotPassword(ForgotPasswordRequest $request)
     {
 
-        $status = Password::sendResetLink(
+        Password::sendResetLink(
             $request->only(['email'])
         );
 
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+        return back()->with(['status' => __('passwords.sent')]);
     }
 
     public function resetPassword(ResetPasswordRequest $request)
