@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Account extends Model
 {
-    use HasUuids, HasFactory;
+    use HasFactory, HasUuids;
 
     protected $casts = [
         'initial_balance' => 'integer',
@@ -22,7 +22,7 @@ class Account extends Model
         $balance = $this->transactions()
             ->whereBetween('date', [
                 $this->initial_balance_date,
-                now()->toDateString()
+                now()->toDateString(),
             ])
             ->sum('amount') + $this->initial_balance;
 
