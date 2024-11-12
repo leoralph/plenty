@@ -5,11 +5,12 @@
 
     <form action="{{ route('password.reset') }}" method="post">
         @csrf
-        <input type="hidden" value="{{request()->token}}" name="token" />
+        <input type="hidden" value="{{ request()->token }}" name="token" />
 
         <div>
             <x-form.input-label for="email" :value="__('Email')" />
-            <x-form.text-field :value="request()->email" type="email" name="email" id="email" autofocus class="block w-full" />
+            <x-form.text-field :value="request()->email" type="email" name="email" id="email" autofocus
+                class="block w-full" />
             <x-form.input-errors :messages="$errors->get('email')" />
         </div>
 

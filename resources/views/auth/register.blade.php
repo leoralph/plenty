@@ -36,7 +36,7 @@
     <x-divider />
 
     <div class="text-center">
-        <span class="text-slate-500">{{ __("Already have an account?") }}</span>
+        <span class="text-slate-500">{{ __('Already have an account?') }}</span>
         <x-link href="{{ route('login') }}">
             {{ __('Login') }}
         </x-link>
